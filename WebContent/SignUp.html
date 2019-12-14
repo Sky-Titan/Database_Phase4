@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>회원가입</title>
+</head>
+<body>
+	<h2>회원가입</h2>
+	<h3>*은 필수적으로 입력해야합니다.</h3>
+	
+	<form action="SignUpDB.jsp" method="POST">
+		ID : (*)
+		<br/>
+		<br/>
+		<input type="text" name="id" size = "15"/>
+		<br/>
+		<br/>
+		비밀번호 : (*)
+		<br/>
+		<br/>
+		<input type="password" name="pw" size = "15"/>
+		<br/>
+		<br/>
+		비밀번호 확인 : (*)
+		<br/>
+		<br/>
+		<input type="password" name="pwConfirm" size = "15"/>
+		<br/>
+		<br/>
+		계정종류 : (*)
+		<br/>
+		<br/>
+		<select name="kind">
+			<option value="Admin" selected>관리자</option>
+			<option value="Customer">고객</option>
+		</select>
+		<br/>
+		<br/>
+		이름 : (*)
+		<br/>
+		<br/>
+		<input type="text" name="fname" size = "15"/>
+		<br/>
+		<br/>
+		성 : (*)
+		<br/>
+		<br/>
+		<input type="text" name="lname" size = "15"/>
+		<br/>
+		<br/>
+		휴대폰번호 : (*)
+		<br/>
+		'-'없이 입력
+		<br/>
+		<br/>
+		<input type="text" name="phonenumber" size="20"/>
+		<br/>
+		<br/>
+		생년월일 :
+		<br/>
+		<br/>
+		<input type="date" name="bdate" value="1950-01-01" min="1950-01-01" max="2000-12-31"/>
+		<br/>
+		<br/>
+		성별 :
+		<br/>
+		<br/>
+		<select name="gender" >
+			<option value="Male" selected>남</option>
+			<option value="Female">여</option>
+		</select>
+		<br/>
+		<br/>
+		직업 :
+		<br/>
+		<br/>
+		<input type="text" name="job" size = "15"/>
+		<br/>
+		<br/>
+		국가 :
+		<br/>
+		<br/>
+		<input type="text" name="country" size = "15"/>
+		<br/>
+		<br/>
+		도시 :
+		<br/>
+		<br/>
+		<input type="text" name="city" size = "15"/>
+		<br/>
+		<br/>
+		주소 :
+		<br/>
+		<br/>
+		<input type="text" name="detail_address" size = "15"/>
+		<br/>
+		<br/>
+		<input type="submit" value="완료"/>
+		<input type="button" value="취소" onclick="location.href='SignIn.html'"/>
+	</form>
+	
+</body>
+</html>
