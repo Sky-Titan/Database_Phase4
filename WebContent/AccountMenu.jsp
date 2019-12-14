@@ -13,7 +13,7 @@
 		<input type="button" value="È¸¿ø Á¤º¸ ¼öÁ¤" onclick="location.href='AccountModification.jsp'"/>
 		<br/>
 		<br/>
-		<input type="button" value="È¸¿ø Å»Åð" onclick="location.href='AccountDelete.jsp'"/>
+		<input type="button" value="È¸¿ø Å»Åð" onclick="location.href='DeleteAccount.jsp'"/>
 		<br/>
 		<br/>
 		<input type="button" value="¸Å¹° º¸±â" onclick="location.href='VehicleTable.jsp'"/>
@@ -22,7 +22,7 @@
 		<input type="button" value="°Å·¡³»¿ª º¸±â" onclick="location.href='OrderTable.jsp'"/>
 		<br/>
 		<br/>
-		<input type="button" value="·Î±×¾Æ¿ô" onclick="location.href='SignIn.html'"/>
+		<input type="button" value="·Î±×¾Æ¿ô" onclick="location.href='Logout.jsp'"/>
 
 	</div>
 </body>

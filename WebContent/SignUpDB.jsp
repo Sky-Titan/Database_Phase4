@@ -1,5 +1,4 @@
 <%@page import="java.util.StringTokenizer"%>
-<%@page import="sun.util.locale.StringTokenIterator"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.*"%>
 

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>db에 로그인 처리</title>
+<title>SignInDB</title>
 </head>
 <body>
 	<%
