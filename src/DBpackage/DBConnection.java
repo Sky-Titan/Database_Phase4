@@ -22,7 +22,33 @@ public class DBConnection {
 	{
 	
 	}
-	
+	public static boolean isPhoneNumber(String phonenumber)
+	{
+		boolean result=false;
+		connect();
+		//서버에 확인
+		try
+		{
+			String sql = "SELECT * FROM ACCOUNT WHERE phonenumber = '"+phonenumber+"'";
+			ResultSet rs = stmt.executeQuery(sql);
+			System.out.println("wow");
+			if(!rs.next())//해당 회원 존재하지 않음
+			{
+				result = false;//존재안함
+			}
+			else {
+				result = true;//존재함 
+			}
+			rs.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		disconnect();
+		return result;
+	}
 	// 2-C 회원은 로그인 이후 특정 조건으로 차량 검색 가능
     // input : category color fuelname modelname detailedmodelname trasmissionname
     // output : all option of vehicle
@@ -230,6 +256,44 @@ public class DBConnection {
 
     // input : makename
     // output : one total_sales
+	public static long selectTotalsales()
+	{
+connect();
+		
+		long totalSales=0;
+
+		try
+		{
+            // select
+			System.out.println("make로만!!");
+			String sql = "select sum(O.price) as total_sales " +
+                "from order_list O";
+			ResultSet rs = stmt.executeQuery(sql);
+			
+            // return value
+
+			if(rs.next())
+            totalSales = rs.getLong(1);
+
+            /*
+			if(res > 0){ 
+				result=true;
+				System.out.println("Tuple was successfully updated.");
+			}else
+				result=false;
+            */
+
+			conn.commit();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		disconnect();
+		return totalSales;
+	}
+	
 	public static long selectTotalsalesBy(String makename)
 	{
 		connect();
@@ -239,6 +303,7 @@ public class DBConnection {
 		try
 		{
             // select
+			System.out.println("make로만!!");
 			String sql = "select sum(O.price) as total_sales " +
                 "from order_list O, detailed_model D, model M " +
                 "where O.modelname = D.modelname AND " +
@@ -283,19 +348,20 @@ public class DBConnection {
 		try
 		{
             // select
-			String sql = "select sum(O.price) as total_sales " +
-                "from order_list O, detailed_model D, model M " +
-                "where O.modelname = D.modelname AND " +
-                "O.detailedmodelname = D.detailedmodelname AND " +
-                "D.modelname = M.modelname AND " +
-                "orderdate >= to_date('" + year + "0101', 'yyyy-mm-dd') AND " +
-                "orderdate <= to_date('" + year + "1231', 'yyyy-mm-dd')";
+			System.out.print("년도로 결과 뽑기"+year);
+			String sql = "select sum(O.price) as total_sales " + 
+					"                from order_list O, detailed_model D, model M " + 
+					"                where O.modelname = D.modelname AND " + 
+					"                O.detailedmodelname = D.detailedmodelname AND " + 
+					"                D.modelname = M.modelname AND " + 
+					"                orderdate >= to_date('"+year+"0101', 'yyyy-mm-dd') AND " + 
+					"                orderdate <= to_date('"+year+"1231', 'yyyy-mm-dd')";
 			ResultSet rs = stmt.executeQuery(sql);
 			
             // return value
 			if(rs.next())
             totalSales = rs.getLong(1);
-
+			System.out.print(" 결과 :"+totalSales);
             /*
 			if(res > 0){ 
 				result=true;

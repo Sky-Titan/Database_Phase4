@@ -8,8 +8,20 @@
 </head>
 <body>
 <div align="Center">
-		<h2>메뉴</h2>
-		
+		<%
+		if(session.getAttribute("isAdmin").equals("true"))
+			out.println("<h2>관리자");
+		else
+			out.println("<h2>고객");
+		%>
+		메뉴</h2>
+		<%!
+    public void helloWorld() {
+       System.out.println("wow");
+    }
+%>
+
+
 		<input type="button" value="회원 정보 수정" onclick="location.href='AccountModification.jsp'"/>
 		<br/>
 		<br/>
@@ -23,6 +35,7 @@
 		<br/>
 		<br/>
 		<input type="button" value="로그아웃" onclick="location.href='Logout.jsp'"/>
+		
 
 	</div>
 </body>

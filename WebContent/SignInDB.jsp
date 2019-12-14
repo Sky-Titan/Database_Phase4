@@ -38,7 +38,7 @@
 						//관리자메뉴 띄우기
 						System.out.println("관리자");
 						session.setAttribute("id", id);
-						session.setAttribute("isAdmin", true);
+						session.setAttribute("isAdmin", "true");
 						response.sendRedirect("AccountMenu.jsp");
 						
 					}
@@ -46,7 +46,7 @@
 					{
 						//고객 메뉴 띄우기
 						session.setAttribute("id", id);
-						session.setAttribute("isAdmin", false);
+						session.setAttribute("isAdmin", "false");
 						response.sendRedirect("AccountMenu.jsp");
 						
 					}

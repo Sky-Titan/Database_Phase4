@@ -20,7 +20,7 @@
 	accountInfo = connection.selectAccountInfo(id);
 	%>
 	<div align="Center">
-	<h2>회원가입</h2>
+	<h2>회원정보 수정</h2>
 	<h3>*은 필수적으로 입력해야합니다.</h3>
 	
 	<form action="AccountModificationDB.jsp" method="POST" >
@@ -147,7 +147,7 @@
 		<br/>
 		<br/>
 		<input type="submit" value="완료"/>
-		<input type="button" value="취소" onclick="location.href='AccountMenu.jsp'"/>
+		<input type="button" value="취소" onclick="history.back(-1);"/>
 	</form>
 	</div>
 </body>

@@ -78,8 +78,18 @@
 							&& !lnameString.equals("") && !phoneString.equals(""))//필수 정보 입력 여부 
 					{
 						
-					
-							//TODO : DB에 이미 존재하는 회원인지 먼저 확인 후 가입(account에 insert) 요청
+							
+						if(connection.isPhoneNumber(phoneString))//휴대폰번호 중복
+						{
+							%>
+							<script>
+			      			alert( '존재하는 휴대폰 번호입니다.' );
+			      			location.href="SignUp.html";
+			    			</script>
+							<% 
+						}
+						else
+						{
 							if(!pwConfirm.equals(pwString))
 							{
 								%>
@@ -117,9 +127,9 @@
 								
 								
 							}
+						}
 							
-						
-						
+		
 					}
 					else// 필수 정보 입력 안하면 경고
 					{

@@ -23,7 +23,7 @@
 			String lnameString = request.getParameter("lname");
 			String phoneString = request.getParameter("phonenumber");
 			String kindString = request.getParameter("kind");
-			
+			System.out.println("종류 : "+kindString);
 			if(!methods.isOnlyNumber(phoneString))//숫자만 있는지 확인
 			{
 				%>
@@ -78,55 +78,67 @@
 							&& !lnameString.equals("") && !phoneString.equals(""))//필수 정보 입력 여부 
 					{
 						
-					
-							//TODO : DB에 이미 존재하는 회원인지 먼저 확인 후 가입(account에 insert) 요청
-							if(!pwConfirm.equals(pwString))
+							if(connection.isPhoneNumber(phoneString))//휴대폰번호 중복
 							{
 								%>
 								<script>
-				      			alert( '비밀번호가 같지 않습니다.' );
+				      			alert( '존재하는 휴대폰 번호입니다.' );
 				      			location.href="SignUp.html";
 				    			</script>
 								<% 
 							}
 							else
 							{
-								boolean result = connection.isMember(idString);
-								if(result==false)//회원 존재 x - 가입가능
-								{
-									boolean result2 = connection.signUpDB(idString, pwString, fnameString, lnameString, phoneString, kindString, 
-											bdate, genderString, jobString, countryString, cityString, detailAddressString);
-									if(result2 == true)//회원가입 완료
-									{
-										//아무것도 안함
-										%>
-										<script>
-						      			alert( '회원가입 성공! 로그인 해주십시오' );
-						      			location.href="SignIn.html";
-						    			</script>
-										<% 
-									}
-									else//회원가입 실패
-									{
-										%>
-										<script>
-						      			alert( '회원가입 실패 - 서버에러' );
-						      			location.href="SignUp.html";
-						    			</script>
-										<% 
-									}
-										
-								}
-								else
+								//TODO : DB에 이미 존재하는 회원인지 먼저 확인 후 가입(account에 insert) 요청
+								if(!pwConfirm.equals(pwString))
 								{
 									%>
 									<script>
-					      			alert( '해당 id가 이미 존재합니다.' );
+					      			alert( '비밀번호가 같지 않습니다.' );
 					      			location.href="SignUp.html";
 					    			</script>
 									<% 
-								}	
+								}
+								else
+								{
+									boolean result = connection.isMember(idString);
+									if(result==false)//회원 존재 x - 가입가능
+									{
+										boolean result2 = connection.signUpDB(idString, pwString, fnameString, lnameString, phoneString, kindString, 
+												bdate, genderString, jobString, countryString, cityString, detailAddressString);
+										if(result2 == true)//회원가입 완료
+										{
+											//아무것도 안함
+											%>
+											<script>
+							      			alert( '회원가입 성공! 로그인 해주십시오' );
+							      			location.href="SignIn.html";
+							    			</script>
+											<% 
+										}
+										else//회원가입 실패
+										{
+											%>
+											<script>
+							      			alert( '회원가입 실패 - 서버에러' );
+							      			location.href="SignUp.html";
+							    			</script>
+											<% 
+										}
+											
+									}
+									else
+									{
+										%>
+										<script>
+						      			alert( '해당 id가 이미 존재합니다.' );
+						      			location.href="SignUp.html";
+						    			</script>
+										<% 
+									}	
+								}
 							}
+							
 							
 						
 						
