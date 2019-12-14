@@ -37,13 +37,17 @@
 					{
 						//관리자메뉴 띄우기
 						System.out.println("관리자");
-						response.sendRedirect("AdministratorMenu.html");
+						session.setAttribute("id", id);
+						session.setAttribute("isAdmin", true);
+						response.sendRedirect("AccountMenu.jsp");
 						
 					}
 					else
 					{
 						//고객 메뉴 띄우기
-						response.sendRedirect("CustomerMenu.html");
+						session.setAttribute("id", id);
+						session.setAttribute("isAdmin", false);
+						response.sendRedirect("AccountMenu.jsp");
 						
 					}
 					//메뉴 창으로 이동

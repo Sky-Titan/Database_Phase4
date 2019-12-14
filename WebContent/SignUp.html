@@ -5,10 +5,11 @@
 <title>회원가입</title>
 </head>
 <body>
+	<div align="Center">
 	<h2>회원가입</h2>
 	<h3>*은 필수적으로 입력해야합니다.</h3>
 	
-	<form action="SignUpDB.jsp" method="POST">
+	<form action="SignUpDB.jsp" method="POST" >
 		ID : (*)
 		<br/>
 		<br/>
@@ -59,14 +60,15 @@
 		생년월일 :
 		<br/>
 		<br/>
-		<input type="date" name="bdate" value="1950-01-01" min="1950-01-01" max="2000-12-31"/>
+		<input type="date" name="bdate" value="" min="1950-01-01" max="2000-12-31"/>
 		<br/>
 		<br/>
 		성별 :
 		<br/>
 		<br/>
 		<select name="gender" >
-			<option value="Male" selected>남</option>
+			<option value="" selected>선택안함</option>
+			<option value="Male">남</option>
 			<option value="Female">여</option>
 		</select>
 		<br/>
@@ -98,6 +100,8 @@
 		<input type="submit" value="완료"/>
 		<input type="button" value="취소" onclick="location.href='SignIn.html'"/>
 	</form>
+	</div>
+	
 	
 </body>
 </html>
