@@ -78,17 +78,7 @@
 							&& !lnameString.equals("") && !phoneString.equals(""))//필수 정보 입력 여부 
 					{
 						
-							
-						if(connection.isPhoneNumber(phoneString))//휴대폰번호 중복
-						{
-							%>
-							<script>
-			      			alert( '존재하는 휴대폰 번호입니다.' );
-			      			location.href="SignUp.html";
-			    			</script>
-							<% 
-						}
-						else
+						if(connection.isMyPhoneNumber(idString, phoneString))//내 번호이면 바로 등록
 						{
 							if(!pwConfirm.equals(pwString))
 							{
@@ -128,6 +118,59 @@
 								
 							}
 						}
+						else//내번호 아니면 중복검사
+						{
+							if(connection.isPhoneNumber(phoneString))//휴대폰번호 중복
+							{
+								%>
+								<script>
+				      			alert( '존재하는 휴대폰 번호입니다.' );
+				      			location.href="AccountModification.jsp";
+				    			</script>
+								<% 
+							}
+							else
+							{
+								if(!pwConfirm.equals(pwString))
+								{
+									%>
+									<script>
+					      			alert( '비밀번호가 같지 않습니다.' );
+					      			location.href="AccountModification.jsp";
+					    			</script>
+									<% 
+								}
+								else
+								{
+									boolean result = connection.isMember(idString);
+									
+										boolean result2 = connection.updateAccount(idString, pwString, fnameString, lnameString, phoneString, kindString, bdate, genderString, jobString, countryString, cityString, detailAddressString);
+										if(result2 == true)//회원가입 완료
+										{
+											//아무것도 안함
+											%>
+											<script>
+							      			alert( '회원정보 수정 완료!' );
+							      			location.href="AccountMenu.jsp";
+							    			</script>
+											<% 
+										}
+										else//회원가입 실패
+										{
+											%>
+											<script>
+							      			alert( '회원정보 수정 실패 - 서버에러' );
+							      			location.href="AccountModification.jsp";
+							    			</script>
+											<% 
+										}
+											
+									
+									
+								}
+							}
+						}
+						
 							
 		
 					}

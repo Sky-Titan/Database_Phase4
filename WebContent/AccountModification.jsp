@@ -95,9 +95,9 @@
 		<br/>
 		<br/>
 		<select name="gender" >
-			<option value="" <% if(accountInfo[7].equals("")) { %>selected<%} %>>선택안함</option>
-			<option value="Male" <% if(accountInfo[7].equals("Male")) { %>selected<%} %>>남</option>
-			<option value="Female" <%if(accountInfo[7].equals("Female")) { %>selected<%} %>>여</option>
+			<option value="" <% if(accountInfo[7]!=null && accountInfo[7].equals("")) { %>selected<%} %>>선택안함</option>
+			<option value="Male" <% if(accountInfo[7]!=null &&accountInfo[7].equals("Male")) { %>selected<%} %>>남</option>
+			<option value="Female" <%if(accountInfo[7]!=null &&accountInfo[7].equals("Female")) { %>selected<%} %>>여</option>
 		</select>
 		<br/>
 		<br/>

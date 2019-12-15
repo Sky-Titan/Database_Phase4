@@ -16,12 +16,20 @@
 	DBConnection connection = new DBConnection();
 	String detailed_model = request.getParameter("detailedmodel");
 	String model = (String)session.getAttribute("model");
+	
+
+	boolean isAdmin=true;
+	if(((String)session.getAttribute("isAdmin")).equals("false"))
+		isAdmin = false;
+	
 	if(!detailed_model.equals("All"))
 	{
-		boolean isAdmin=true;
-		if(((String)session.getAttribute("isAdmin")).equals("false"))
-			isAdmin = false;
 		String [][] data= connection.selectVehiclesByModelname(model, detailed_model, isAdmin);
+		session.setAttribute("VehicleData", data);
+	}
+	else
+	{
+		String [][] data= connection.selectVehiclesByModelname(model, isAdmin);
 		session.setAttribute("VehicleData", data);
 	}
 	session.setAttribute("detailedModel", detailed_model);

@@ -20,7 +20,7 @@
 		
 		<h2>차량 매물</h2>
 		
-		<form action="VehicleTableDB.jsp" method="POST">
+		
 		
 		제조사 : 
 		<select name="makes" id="makes" onchange="making_models(this)">
@@ -256,6 +256,10 @@
 		%>
 		</select>
 		
+		<input type="button" value="뒤로가기" onclick="location.href='AccountMenu.jsp'"/>
+		<br/>
+		<br/>
+		<form action="VehicleTableDB.jsp" method="POST">
 		<div style="width:100%; height:400px; overflow:auto">
 		<% 
 		boolean isAdmin=true;
@@ -308,6 +312,9 @@
 		</div>
 		
 		</form>
+		<br/>
+		<br/>
+		<input type = "button" value="조건 검색하기" onclick="location.href=''"
 	</div>
 </body>
 </html>
