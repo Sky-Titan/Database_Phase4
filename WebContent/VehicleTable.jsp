@@ -16,6 +16,14 @@
 <body>
 	<div align="center">
 	
+		<%
+		//register vehicle로 진입하기전 세션값 삭제
+		if(session.getAttribute("model_reegister")!=null)
+		{
+			session.removeAttribute("model_register");
+			session.removeValue("model_register");
+		}
+		%>
 	
 		
 		<h2>차량 매물</h2>
@@ -25,6 +33,7 @@
 		제조사 : 
 		<select name="makes" id="makes" onchange="making_models(this)">
 		<%
+		
 		String make="no";
 
 		if(session.getAttribute("make")!=null)
@@ -60,6 +69,51 @@
 		
 		%>
 		<script type="text/javascript">
+		
+		function modifyVehicle() {
+			var radio_btn = document.getElementsByName("choiceVehicle");
+			 
+	        //라디오 버튼이 체크되었나 확인하기 위한 변수
+	        var radio_btn_check = 0;
+	        for(var i = 0; i<radio_btn.length; i++){
+	            //만약 라디오 버튼이 체크가 되어있다면 true
+	            if(radio_btn[i].checked==true){
+	            	
+	            	var form = document.createElement("form");
+	   		     var make = makes.value;
+	   	         form.setAttribute("charset", "UTF-8");
+
+	   	         form.setAttribute("method", "Post");  //Post 방식
+
+	   	         form.setAttribute("action", "ModifyVehicle.jsp"); //요청 보낼 주소
+
+
+
+	   	         var hiddenField = document.createElement("input");
+
+	   	         hiddenField.setAttribute("type", "text");
+
+	   	         hiddenField.setAttribute("name", "vehicleNumber");
+
+	   	         hiddenField.setAttribute("value", radio_btn[i].value);
+
+	   	         form.appendChild(hiddenField);
+
+
+
+	   	         document.body.appendChild(form);
+
+	   	         form.submit();
+	           		return;
+	            }
+	        }
+	        
+	        if(radio_btn_check==0){
+	            alert("라디오 버튼을 선택해주세요");
+	            return;
+	        }
+
+		}
 		
 		function making_models(makes)
 		{
@@ -257,14 +311,13 @@
 		</select>
 		
 		<input type="button" value="뒤로가기" onclick="location.href='AccountMenu.jsp'"/>
+		
 		<br/>
 		<br/>
-		<form action="VehicleTableDB.jsp" method="POST">
+		<form action="BuyVehicle.jsp" method="POST">
 		<div style="width:100%; height:400px; overflow:auto">
 		<% 
-		boolean isAdmin=true;
-		if(String.valueOf(session.getAttribute("isAdmin")).equals("false"))
-			isAdmin=false;
+		boolean isAdmin= (boolean)session.getAttribute("isAdmin");
 		
 		String header[] ={"차량 번호","주행거리(km)","모델","세부모델","가격(원)","연식","연료","색상","배기량(cc)","하이브리드","공개여부","제조사","차종","연비(km)","변속기","수정"};
 		
@@ -304,17 +357,27 @@
 			{
 				out.println("<td>"+data[i][j]+"</td>");
 			}
-			out.println("<td><input type=\"radio\" name=\"modifyVehicle\" value=\""+data[i][0]+"\"></td>");
+			out.println("<td><input type=\"radio\" name=\"choiceVehicle\" value=\""+data[i][0]+"\"></td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");
 		%>
 		</div>
+		<%
+		out.println("<br/>");
+		if(isAdmin)
+		{
+			out.println("<input type=\"button\" value=\"차량 매물 등록\" onclick=\"location.href='RegisterVehicle.jsp'\"></input>");
+			out.println("<input type=\"button\" value=\"차량 정보 수정\" onclick=\"location.href='ModifyVehicle.jsp'\"></input>");
+		}
+		out.println("<input type=\"submit\" name=\"submit\" value=\"구매\" ></input>");
+		
+		%>
 		
 		</form>
 		<br/>
 		<br/>
-		<input type = "button" value="조건 검색하기" onclick="location.href=''"
+		
 	</div>
 </body>
 </html>

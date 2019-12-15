@@ -7,14 +7,24 @@
 <body>
 	<div align="Center">
 	<h2>중고차 매매 사이트 로그인</h2>
-	<form action="SignInDB.jsp" method="POST" >
-	<input type="text" name = "ID"/>
+	<script>
+	function checkBlank()
+	{
+		var frm = document.forms["loginform"];
+		if(frm.ID.value=="" || frm.pw.value=="" )
+			alert('빈칸이 있습니다');
+		else
+			frm.submit();
+	}
+	</script>
+	<form action="SignInDB.jsp" method="POST" name="loginform" >
+	<input type="text" name = "ID" value=""/>
 	<br/>
 	<br/>
-	<input type="password" name ="pw"/>
+	<input type="password" name ="pw" value=""/>
 	<br/>
 	<br/>
-	<input type="submit"  value="로그인"/>
+	<input type="button"  value="로그인" onclick="checkBlank();"/>
 	<input type="button" value="회원가입" onclick="location.href='SignUp.html'"/>
 	<br/>
 	</form>

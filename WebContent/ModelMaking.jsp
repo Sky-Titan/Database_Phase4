@@ -16,9 +16,8 @@
 	DBConnection connection = new DBConnection();
 	String make = request.getParameter("make");
 	
-	boolean isAdmin=true;
-	if(((String)session.getAttribute("isAdmin")).equals("false"))
-		isAdmin = false;
+	boolean isAdmin=(boolean)session.getAttribute("isAdmin");
+	
 	
 	if(!make.equals("All"))
 	{

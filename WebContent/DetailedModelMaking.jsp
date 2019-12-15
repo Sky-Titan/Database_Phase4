@@ -16,9 +16,8 @@
 	DBConnection connection = new DBConnection();
 	String model = request.getParameter("model");
 	String make = (String)session.getAttribute("make");
-	boolean isAdmin=true;
-	if(((String)session.getAttribute("isAdmin")).equals("false"))
-		isAdmin = false;
+	boolean isAdmin=(boolean)session.getAttribute("isAdmin");
+	
 	if(!model.equals("All"))
 	{
 		String [][] data= connection.selectVehiclesByModelname(model, isAdmin);

@@ -9,7 +9,7 @@
 <body>
 <div align="Center">
 		<%
-		if(session.getAttribute("isAdmin").equals("true"))
+		if((boolean)session.getAttribute("isAdmin"))
 			out.println("<h2>관리자");
 		else
 			out.println("<h2>고객");
@@ -38,10 +38,14 @@
 		<input type="button" value="매물 보기" onclick="location.href='VehicleTable.jsp'"/>
 		<br/>
 		<br/>
+		<input type = "button" value="매물 조건별 검색하기" onclick="location.href='ConditionSearch.jsp'"/>
+		<br/>
+		<br/>
 		<input type="button" value="거래내역 보기" onclick="location.href='OrderTable.jsp'"/>
 		<br/>
 		<br/>
 		<input type="button" value="로그아웃" onclick="location.href='Logout.jsp'"/>
+		
 		
 
 	</div>

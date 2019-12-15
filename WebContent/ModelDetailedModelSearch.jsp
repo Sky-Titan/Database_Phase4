@@ -18,9 +18,7 @@
 	String model = (String)session.getAttribute("model");
 	
 
-	boolean isAdmin=true;
-	if(((String)session.getAttribute("isAdmin")).equals("false"))
-		isAdmin = false;
+	boolean isAdmin=(boolean)session.getAttribute("isAdmin");
 	
 	if(!detailed_model.equals("All"))
 	{

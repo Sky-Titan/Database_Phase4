@@ -22,7 +22,34 @@ public class DBConnection {
 	{
 	
 	}
-	
+	public static boolean isVehicle(String vehiclenumber)
+	{
+		boolean result=false;
+		connect();
+		//서버에 확인
+		try
+		{
+			String sql = "SELECT * FROM vehicle WHERE VEHICLENUMBER='"+vehiclenumber+"'";
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next())
+			{
+					result = true;
+			}
+			else
+			{
+				result=false;
+			}
+			
+			rs.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		disconnect();
+		return result;
+	}
 	public static boolean isMyPhoneNumber(String id,String phonenumber)
 	{
 		boolean result=false;
@@ -51,33 +78,7 @@ public class DBConnection {
 		disconnect();
 		return result;
 	}
-	public static boolean isPhoneNumberExceptMe(String phonenumber)
-	{
-		boolean result=false;
-		connect();
-		//서버에 확인
-		try
-		{
-			String sql = "SELECT * FROM ACCOUNT WHERE phonenumber = '"+phonenumber+"'";
-			ResultSet rs = stmt.executeQuery(sql);
-			
-			if(!rs.next())//해당 회원 존재하지 않음
-			{
-				result = false;//존재안함
-			}
-			else {
-				result = true;//존재함 
-			}
-			rs.close();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		
-		disconnect();
-		return result;
-	}
+
 	public static boolean isPhoneNumber(String phonenumber)
 	{
 		boolean result=false;

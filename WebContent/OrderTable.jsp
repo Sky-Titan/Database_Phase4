@@ -13,12 +13,8 @@
 	<%
 	String id = session.getAttribute("id")+"";
 	
-	boolean isAdmin;
+	boolean isAdmin = (boolean)session.getAttribute("isAdmin");
 	
-	if(session.getAttribute("isAdmin").equals("true"))
-		isAdmin=true;
-	else
-		isAdmin=false;
 	
 	if(isAdmin)
 	{

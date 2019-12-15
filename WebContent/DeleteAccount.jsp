@@ -18,7 +18,7 @@
 	String id = session.getAttribute("id")+"";
 
 	
-	if(session.getAttribute("isAdmin").equals("true"))//관리자 계정은 관리자 계정 최소 1개이상 존재하는지 체크
+	if(((boolean)session.getAttribute("isAdmin")))//관리자 계정은 관리자 계정 최소 1개이상 존재하는지 체크
 	{
 		if(connection.countAdminAccount() <= 1)//현재 서버에 관리자계정 1개 이하인 경우 탈퇴 불가
 		{
