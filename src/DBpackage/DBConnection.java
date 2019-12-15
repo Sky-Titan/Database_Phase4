@@ -258,7 +258,7 @@ public class DBConnection {
     // output : one total_sales
 	public static long selectTotalsales()
 	{
-connect();
+		connect();
 		
 		long totalSales=0;
 
@@ -1332,7 +1332,7 @@ connect();
 			
 				for(int j=0;j<column;j++)
 				{
-					System.out.println(rs.getString(j+1));
+					
 					if(j==5)
 					{
 						StringTokenizer strtok = new StringTokenizer(rs.getString(j+1)," ");

@@ -13,6 +13,13 @@
 			out.println("<h2>관리자");
 		else
 			out.println("<h2>고객");
+		
+		
+		session.removeAttribute("make");
+		session.removeValue("make");
+		session.removeAttribute("model");
+		session.removeValue("model");
+		
 		%>
 		메뉴</h2>
 		<%!
