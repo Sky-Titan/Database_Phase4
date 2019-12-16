@@ -359,7 +359,7 @@
 		</select>
 		
 		<input type="button" value="뒤로가기" onclick="location.href='AccountMenu.jsp'"/>
-		
+		<input type = "button" value="매물 조건별 검색하기" onclick="location.href='ConditionSearch.jsp'"/>
 		<br/>
 		<br/>
 		<form action="BuyVehicle.jsp" method="POST">
@@ -421,7 +421,7 @@
 		out.println("<input type=\"button\" name=\"buy\" value=\"구매\" onclick=\"buyVehicle();\"></input>");
 		
 		%>
-		
+	
 		</form>
 		<br/>
 		<br/>

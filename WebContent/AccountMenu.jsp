@@ -38,9 +38,6 @@
 		<input type="button" value="매물 보기" onclick="location.href='VehicleTable.jsp'"/>
 		<br/>
 		<br/>
-		<input type = "button" value="매물 조건별 검색하기" onclick="location.href='ConditionSearch.jsp'"/>
-		<br/>
-		<br/>
 		<input type="button" value="거래내역 보기" onclick="location.href='OrderTable.jsp'"/>
 		<br/>
 		<br/>
