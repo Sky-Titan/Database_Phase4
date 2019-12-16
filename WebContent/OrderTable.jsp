@@ -32,7 +32,7 @@
 	<%
 	}
 	%>
-	<input type = "button" value="뒤로가기 " onclick="history.back(-1);"/>
+	<input type = "button" value="뒤로가기 " onclick="location.href='AccountMenu.jsp';"/>
 	
 	<br/>
 	<br/>

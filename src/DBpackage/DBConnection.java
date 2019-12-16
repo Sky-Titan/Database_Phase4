@@ -22,6 +22,107 @@ public class DBConnection {
 	{
 	
 	}
+	//차량번호만
+	public static ArrayList<String> selectVehicleNumbers()
+	{
+		ArrayList<String> result = new ArrayList<>();
+		connect();
+		//서버에 확인
+		try
+		{
+			String sql = "SELECT SERIALNUMBER FROM VEHICLE";
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				result.add(rs.getString(1));
+			}
+			
+			rs.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		disconnect();
+		return result;
+	}
+	//주문이력 있는 회원인지 확인
+	public static boolean hasOrdered(String id)
+	{
+		boolean result=false;
+		connect();
+		//서버에 확인
+		try
+		{
+			String sql = "SELECT * FROM ORDER_LIST WHERE BUYERID='"+id+"'";
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next())
+			{
+					result = true;
+			}
+			else
+			{
+				result=false;
+			}
+			
+			rs.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		disconnect();
+		return result;
+	}
+	
+	//차량정보 전부가져옴
+	public static String[] selectSingleVehicleAll(String vehiclenumber)
+	{
+		String[] results=new String[14];
+	
+		connect();
+		//서버에 확인
+		try
+		{
+			String sql = "SELECT v.serialnumber, v.mileage, v.modelname, v.detailedmodelname, v.price, v.model_year, v.fuelname, v.colorname, v.capacity, v.ishybrid, m.makename, dm.categoryname, dm.fuelefficiency, dm.transmissionname FROM VEHICLE V, DETAILED_MODEL DM, MODEL M WHERE V.SERIALNUMBER='"+vehiclenumber+"' AND V.MODELNAME = M.MODELNAME AND V.DETAILEDMODELNAME = DM.DETAILEDMODELNAME AND V.MODELNAME = DM.MODELNAME AND V.ISOPEN ='1' ORDER BY TO_NUMBER(v.serialnumber) ASC";//공개처리된애들만 불러옴;
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				for(int i=0;i<results.length;i++)
+				{
+					results[i] = rs.getString(i+1);
+					if(i==5)
+					{
+						StringTokenizer strtok = new StringTokenizer(results[i]);
+						results[i] = strtok.nextToken();
+					}
+					if(i==9)
+					{
+						if(results[i].equals("1"))
+							results[i]="O";
+						else
+							results[i]="X";	
+					}
+					
+				}
+			}
+			
+			rs.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		disconnect();
+		
+		return results;
+		
+	}
 	
 	public static String[] selectSingleVehicle(String vehiclenumber)//해당 id 존재 여부 및 비밀번호 가져옴
 	{
