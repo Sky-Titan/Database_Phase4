@@ -15,10 +15,10 @@
 <style >
 	
 	#mgLeft{
-	margin-left: 100px;
+	margin-left: 300px;
 	}
 	#mgTable{
-	margin-left: 650px;
+	margin-left: 900px;
 	}
 	#mgRight{
 	margin-right: 50px;
@@ -97,30 +97,31 @@
 			<div  id="mgTable" align="left">
 				<table border="1">
 					<tr height="<%=tr_height%>">
-						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>차량번호</b></td><td align="center" width="<%=td_width%>"><%=data[0] %></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>색상</b></td><td align="center" width="<%=td_width%>"><%=data[7]%></td>
+						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>차량번호</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[0] %></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>색상</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[7]%></td>
 					</tr>
 					<tr height="<%=tr_height%>">
-						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>주행거리</b></td><td align="center" width="<%=td_width%>"><%=data[1]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>배기량(cc)</b></td><td align="center" width="<%=td_width%>"><%=data[8]%></td>
+						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>주행거리</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[1]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>배기량(cc)</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[8]%></td>
 					</tr>
 					<tr height="<%=tr_height%>">
-						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>모델</b></td><td align="center" width="<%=td_width%>"><%=data[2]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>하이브리드</b></td><td align="center" width="<%=td_width%>"><%=data[9]%></td>
+						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>모델</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[2]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>하이브리드</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[9]%></td>
 					</tr>
 					<tr height="<%=tr_height%>">
-						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>세부모델</b></td><td align="center" width="<%=td_width%>"><%=data[3]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>제조사</b></td><td align="center" width="<%=td_width%>"><%=data[10]%></td>
+						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>세부모델</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[3]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>제조사</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[10]%></td>
 					</tr>
 					<tr height="<%=tr_height%>">
-						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>가격(원)</b></td><td align="center" width="<%=td_width%>"><%=data[4]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>차종</b></td><td align="center" width="<%=td_width%>"><%=data[11]%></td>
+						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>가격(원)</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[4]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>차종</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[11]%></td>
 					</tr>
 					<tr height="<%=tr_height%>">
-						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>연식</b></td><td align="center" width="<%=td_width%>"><%=data[5]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>연비(km)</b></td><td align="center" width="<%=td_width%>"><%=data[12]%></td>
+						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>연식</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[5]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>연비(km)</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[12]%></td>
 					</tr>
 					<tr height="<%=tr_height%>">
-						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>연료</b></td><td align="center" width="<%=td_width%>"><%=data[6]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>변속기</b></td><td align="center" width="<%=td_width%>"><%=data[13]%></td>
+						<td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>연료</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[6]%></td><td bgcolor="<%=td_color %>" align="center" width="<%=header_width%>"><b>변속기</b></td><td align="center" width="<%=td_width%>" bgcolor="#ffffff"><%=data[13]%></td>
 					</tr>		
 					
 				</table>
 			</div>	
 
+			<br/>
 			<br/>
 			<div align="center">
 			<button onclick = "submit();" style="HEIGHT: 30pt"><b>바로 구매하기</b></button>

@@ -48,7 +48,7 @@
 </head>
 <body>
 	<div align="Center">
-	<h2>차량거래내역</h2>
+	<h1>차량거래내역</h1>
 	<%
 	String id = session.getAttribute("id")+"";
 	
