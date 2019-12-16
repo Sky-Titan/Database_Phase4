@@ -15,26 +15,14 @@
 	<%
 	DBConnection connection = new DBConnection();
 	
-	String namelist[] = {"vehiclenumber_register","mileage_register","model_register","detailedmodel_register","price_register","modelyear_register","fuel_register","color_register","capacity_register","open_register"};
+	String namelist[] = {"vehiclenumber_modify","mileage_modify","model_modify","detailedmodel_modify","price_modify","modelyear_modify","fuel_modify","color_modify","capacity_modify","open_modify"};
 	String list[]=new String[namelist.length];
 	for(int i =0;i<list.length;i++)
 	{
 		list[i] = request.getParameter(namelist[i]);
 		System.out.println("등록 : "+list[i]);
 	}
-	
-	boolean r = connection.isVehicle(list[0]);
-	if(r)//시리얼넘버 중복
-	{
-		%>
-		<script>
-		alert('차량번호가 중복됩니다.');
-		location.href="RegisterVehicle.jsp";
-		</script>
-		<%
-	}
-	else
-	{
+
 		String modelyear = "TO_DATE('"+list[5]+"','yyyy-mm-dd')";
 		
 		String ishybridString;
@@ -50,7 +38,7 @@
 		else
 			isopenString = "0";
 		
-		boolean result = connection.insertVehicles(list[0], list[1], list[2], list[3], list[4], modelyear, list[6], list[7], list[8], ishybridString, isopenString);
+		boolean result = connection.updateVehicles(list[0], list[1], list[2], list[3], list[4], modelyear, list[6], list[7], list[8], ishybridString, isopenString);
 		if(result == true)//등록 완료
 		{
 			for(int i=0;i<namelist.length;i++)
@@ -62,7 +50,7 @@
 			session.removeValue("VehicleData");
 			%>
 			<script>
-			alert('등록완료');
+			alert('수정완료');
 			location.href="VehicleTable.jsp";
 			</script>
 			<% 
@@ -73,11 +61,11 @@
 			%>
 			<script>
 			alert('서버에러');
-			location.href="RegisterVehicle.jsp";
+			location.href="ModifyVehicle.jsp";
 			</script>
 			<% 
 		}	
-	}
+	
 	
 	
 	%>

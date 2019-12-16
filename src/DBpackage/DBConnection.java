@@ -22,6 +22,39 @@ public class DBConnection {
 	{
 	
 	}
+	
+	public static String[] selectSingleVehicle(String vehiclenumber)//해당 id 존재 여부 및 비밀번호 가져옴
+	{
+		String[] results=new String[11];
+	
+		connect();
+		//서버에 확인
+		try
+		{
+			String sql = "SELECT * FROM VEHICLE WHERE serialNUMBER = '"+vehiclenumber+"'";
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				for(int i=0;i<results.length;i++)
+				{
+					results[i] = rs.getString(i+1);
+				}
+			}
+			
+			rs.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		disconnect();
+		
+		return results;
+		
+	}
+	
 	public static boolean isVehicle(String vehiclenumber)
 	{
 		boolean result=false;
@@ -553,6 +586,7 @@ public class DBConnection {
             System.out.println("ordernumber"+ordernumber);
             // insert into order_list
 			sql = "INSERT INTO order_list VALUES('"+ordernumber+"', "+orderdate+", '"+buyerId+"', '"+model+"', '"+detailed_model+"', "+price+", "+model_year+", '"+fuel+"', '"+color+"', '"+ishybrid+"')";
+			System.out.println(sql);
 			res = stmt.executeUpdate(sql);
 
 			if(res > 0){ 
