@@ -3,13 +3,58 @@
 <head>
 <meta charset="EUC-KR">
 <title>회원가입</title>
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 	<div align="Center">
 	<h2>회원가입</h2>
 	<h3>*은 필수적으로 입력해야합니다.</h3>
-	
-	<form action="SignUpDB.jsp" method="POST" >
+	<script>
+	function submit()
+	{
+		var frm = document.forms["signup"];
+		frm.submit();
+	}
+	</script>
+	<form action="SignUpDB.jsp" method="POST" name="signup">
 		ID : (*)
 		<br/>
 		<br/>
@@ -96,10 +141,12 @@
 		<br/>
 		<input type="text" name="detail_address" size = "15"/>
 		<br/>
-		<br/>
-		<input type="submit" value="완료"/>
-		<input type="button" value="취소" onclick="history.back(-1);"/>
+		<br/>	
 	</form>
+	
+	<button onclick="submit();" style="width:80pt"><b>완료</b></button>
+	<button onclick="location.href='SignIn.html';" style="width:80pt"><b>취소</b></button>
+	
 	</div>
 	
 	

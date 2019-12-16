@@ -6,6 +6,45 @@
 <head>
 <meta charset="EUC-KR">
 <title>차량 거래내역</title>
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 	<div align="Center">
@@ -25,14 +64,14 @@
 		session.setAttribute("months", "no");
 	%>
 	
-	<input type = "button" value="전체 거래 내역 보기" onclick="location.href='setAll_true.jsp'" >
-	<input type = "button" value="관리자 개인 거래 내역 보기" onclick="location.href='setAll_false.jsp'">
-	<input type = "button" value="매출액 보기" onclick="location.href='ShowSales.jsp'">
-	
+	<button onclick="location.href='setAll_true.jsp'" ><b>전체 거래 내역 보기</b></button>
+	<button onclick="location.href='setAll_false.jsp'"><b>관리자 개인 거래 내역 보기</b></button>
+
+	<button onclick="location.href='ShowSales.jsp'"><b>매출액 보기</b></button>
 	<%
 	}
 	%>
-	<input type = "button" value="뒤로가기 " onclick="location.href='AccountMenu.jsp';"/>
+	<button onclick="location.href='AccountMenu.jsp';"><b>뒤로 가기</b></button>
 	
 	<br/>
 	<br/>
@@ -64,11 +103,11 @@
 	}
 	
 	%>
-	<div style="width:100%; height:400px; overflow:auto">
+	<div style="width:100%; height:600px; overflow:auto">
 	<% 
 	out.println("<table border=\"1\">");
 	for(int k=0;k<header.length;k++)
-		out.println("<th>"+header[k]+"</th>");
+		out.println("<th bgcolor=\"#ffffff\" align=\"center\">"+header[k]+"</th>");
 	for(int i=0;i<data.length;i++)
 	{
 		
@@ -76,7 +115,7 @@
 		
 		for(int j=0;j<data[i].length;j++)
 		{
-			out.println("<td>"+data[i][j]+"</td>");
+			out.println("<td bgcolor=\"#ffffff\" align=\"center\">"+data[i][j]+"</td>");
 		}
 		
 		out.println("</tr>");

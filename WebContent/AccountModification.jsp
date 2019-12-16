@@ -8,9 +8,59 @@
 <head>
 <meta charset="EUC-KR">
 <title>회원정보수정</title>
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 
+<script type="text/javascript">
+	
+	function checkBlank()
+	{
+		var frm = document.forms["accountmodify"];
+			
+			frm.submit();
+			
+		
+	}
+	</script>
 	<%
 	DBConnection connection = new DBConnection();
 	
@@ -23,7 +73,7 @@
 	<h2>회원정보 수정</h2>
 	<h3>*은 필수적으로 입력해야합니다.</h3>
 	
-	<form action="AccountModificationDB.jsp" method="POST" >
+	<form action="AccountModificationDB.jsp" method="POST" name="accountmodify">
 	
 		비밀번호 : (*)
 		<br/>
@@ -144,11 +194,12 @@
 		else
 			out.print("");
 		%>"/>
-		<br/>
-		<br/>
-		<input type="submit" value="완료"/>
-		<input type="button" value="취소" onclick="history.back(-1);"/>
+	
 	</form>
+	<br/>
+
+		<button onclick="checkBlank();" style="width:80pt"><b>완료</b></button>
+		<button onclick="location.href='AccountMenu.jsp';" style="width:80pt"><b>취소</b></button>
 	</div>
 </body>
 </html>

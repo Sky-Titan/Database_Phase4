@@ -44,7 +44,7 @@
 		%>
 		<script type="text/javascript">
 		alert('구매완료');
-		location.href="VehicleTable.jsp";
+		location.href="AccountMenu.jsp";
 		</script>
 		<% 
 	

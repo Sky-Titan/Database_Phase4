@@ -10,6 +10,45 @@
 <head>
 <meta charset="EUC-KR">
 <title>차량 매물 등록</title>
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 	<div align="center">

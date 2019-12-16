@@ -10,6 +10,45 @@
 <head>
 <meta charset="EUC-KR">
 <title>조건별 검색</title>
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 	<div align="center">
@@ -493,10 +532,9 @@
 		<input type = "text" readonly="readonly" <% if(detailedmodel_input_search!=null) out.println("value=\""+detailedmodel_input_search+"\" "); else out.println("value=\"\""); %> name="detailedmodel_input" id="detailedmodel_input"/>
 		<br/><br/>
 		
-		<input type = "button" value="검색" onclick="checkBlank();"/>
-		<input type = "button" value="취소" onclick="history.back(-1);"/>
 	</form>
-	
+		<button onclick="checkBlank();" style="width:80pt"><b>검색</b></button>
+		<button onclick="location.href='VehicleTable.jsp';" style="width:80pt"><b>취소</b></button>
 	</div>
 </body>
 </html>

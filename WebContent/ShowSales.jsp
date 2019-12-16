@@ -11,12 +11,61 @@
 <head>
 <meta charset="EUC-KR">
 <title>매출액보기</title>
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 	<div align="center">
 	<h2>매출액 보기</h2>
 	
 	<script type="text/javascript">
+
+	
+	function checkBlank()
+	{
+		var frm = document.forms["saleinfo"];
+			
+		frm.submit();
+			
+		
+	}
 	function month_making(years)
 	{
 		
@@ -56,7 +105,7 @@
 	}
 	
 	</script>
-	<form action="SalesResult.jsp" method="POST">
+	<form action="SalesResult.jsp" method="POST" name="saleinfo">
 	
 		<%
 		String make_session = session.getAttribute("makes")+"";
@@ -181,15 +230,15 @@
 			out.println("<input type = \"number\" name = \"result\" readonly=\"readonly\" value=\"\"/>");
 		}
 		%>
+	
+		
+	</form>
 		
 		<br/>
 		<br/>
-		<input type="submit" name="complete" value="완료" />
-		<br/>
-		<br/>
-		<input type="button" name="back" value="뒤로가기" onclick="history.back(-1);"/>
-	</form>
-	
+	<button onclick="checkBlank();" style="width:80pt"><b>완료</b> </button>
+		
+		<button onclick="location.href='OrderTable.jsp'" style="width:80pt"><b>뒤로 가기</b></button>
 	</div>
 </body>
 </html>

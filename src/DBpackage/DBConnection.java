@@ -807,20 +807,20 @@ public class DBConnection {
 			String sql;
 	           // print makename X
 			if(!isAdmin)
-				sql = "SELECT V.serialnumber, V.mileage, V.modelname, V.detailedmodelname, " + 
+				sql = "SELECT DISTINCT V.serialnumber, V.mileage, V.modelname, V.detailedmodelname, " + 
 	                  "V.price, V.model_year, V.fuelname, V.colorname, V.capacity, V.ishybrid, " +
 	                  "m.makename, d.categoryname, d.fuelefficiency, d.transmissionname " + 
 	                  "from vehicle V, detailed_model D, model M  " + 
 	                  "where V.modelname = '" + modelname + "' AND " +
-	                  " D.detailedmodelname = V.detailedmodelname AND M.modelname = V.modelname AND " +
+	                  " D.detailedmodelname = V.detailedmodelname AND D.modelname = V.modelname AND M.MODELNAME=V.MODELNAME AND " +
 	                  "V.isopen = '1' ORDER BY TO_NUMBER(v.serialnumber) ASC";
 			else
-				sql = "SELECT V.serialnumber, V.mileage, V.modelname, V.detailedmodelname, " + 
+				sql = "SELECT DISTINCT V.serialnumber, V.mileage, V.modelname, V.detailedmodelname, " + 
 	                   "V.price, V.model_year, V.fuelname, V.colorname, V.capacity, V.ishybrid, " +
 	                   "V.isopen , m.makename, d.categoryname, d.fuelefficiency, d.transmissionname " + 
 	                   "from vehicle V , detailed_model D, model M  " + 
 	                   "where V.modelname = '" + modelname + "' AND " +
-	                   "D.detailedmodelname = V.detailedmodelname AND M.modelname = V.modelname ORDER BY TO_NUMBER(v.serialnumber) ASC"; 
+	                   "D.detailedmodelname = V.detailedmodelname AND D.modelname = V.modelname AND M.MODELNAME=V.MODELNAME ORDER BY TO_NUMBER(v.serialnumber) ASC"; 
 			ResultSet rs = stmt.executeQuery(sql);
 			int i=0;
 			ResultSetMetaData rsmd = rs.getMetaData();
@@ -898,7 +898,7 @@ public class DBConnection {
 	                  "m.makename, d.categoryname, d.fuelefficiency, d.transmissionname " + 
 	                  "from vehicle V, detailed_model D, model M  " + 
 	                  "where V.modelname = '" + modelname + "' AND " +
-	                  "V.detailedmodelname = '" + detailedmodelname + "' AND D.detailedmodelname = V.detailedmodelname AND M.modelname = V.modelname AND " +
+	                  "V.detailedmodelname = '" + detailedmodelname + "' AND D.detailedmodelname = V.detailedmodelname AND D.MODELNAME=V.MODELNAME AND M.modelname = V.modelname AND " +
 	                  "V.isopen = '1' ORDER BY TO_NUMBER(v.serialnumber) ASC";
 			else
 				sql = "SELECT V.serialnumber, V.mileage, V.modelname, V.detailedmodelname, " + 
@@ -906,7 +906,7 @@ public class DBConnection {
 	                   "V.isopen , m.makename, d.categoryname, d.fuelefficiency, d.transmissionname " + 
 	                   "from vehicle V , detailed_model D, model M  " + 
 	                   "where V.modelname = '" + modelname + "' AND " +
-	                   "V.detailedmodelname = '" + detailedmodelname+ "' AND D.detailedmodelname = V.detailedmodelname AND M.modelname = V.modelname ORDER BY TO_NUMBER(v.serialnumber) ASC"; 
+	                   "V.detailedmodelname = '" + detailedmodelname+ "' AND D.detailedmodelname = V.detailedmodelname AND D.MODELNAME=V.MODELNAME AND M.modelname = V.modelname ORDER BY TO_NUMBER(v.serialnumber) ASC"; 
 			ResultSet rs = stmt.executeQuery(sql);
 			int i=0;
 			ResultSetMetaData rsmd = rs.getMetaData();

@@ -3,10 +3,52 @@
 <head>
 <meta charset="EUC-KR">
 <title>로그인</title>
+
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 	<div align="Center">
-	<h2>중고차 매매 사이트 로그인</h2>
+	<br/><br/>
+	<h1><i>중고차 매매</i></h1>
+	</br>
 	<script>
 	function checkBlank()
 	{
@@ -18,16 +60,22 @@
 	}
 	</script>
 	<form action="SignInDB.jsp" method="POST" name="loginform" >
+	아이디 :
+	<br/><br/> 
 	<input type="text" name = "ID" value=""/>
 	<br/>
 	<br/>
+	비밀번호 :
+	<br/><br/>
 	<input type="password" name ="pw" value=""/>
 	<br/>
 	<br/>
-	<input type="button"  value="로그인" onclick="checkBlank();"/>
-	<input type="button" value="회원가입" onclick="location.href='SignUp.html'"/>
 	<br/>
 	</form>
+	
+	<button onclick="checkBlank();" style="width:100pt"><b>로그인</b></button>
+	<button onclick="location.href='SignUp.html'" style="width:100pt"><b>회원가입</b></button>
+	<br/>
 	</div>
 </body>
 </html>

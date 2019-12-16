@@ -31,11 +31,37 @@
 	{
 	align-self: center;
 	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
 	
 </style>
 </head>
 <body>
 	
+		<script type="text/javascript">
+		
+		function submit()
+		{
+			var frm = document.forms["vehicleinfo"];
+			frm.submit();
+		}
+		</script>
 		<%
 		String td_width="120";
 		String header_width="100";
@@ -54,14 +80,17 @@
 		String samplenumber = String.valueOf(random.nextInt(15)+1)+"";
 		%>
 	
-	<form action="BuyVehicle.jsp" method="POST">
-		<div align="center">
+	<div align="center">
 		<br/><br/>
-		<h1>차량 추천 서비스</h1>
+		<h1><I>차량 추천 서비스</I></h1>
 		<div align = "right" id="mgRight">
-			<input type="button" value="뒤로가기" onclick="history.back(-1)" style="HEIGHT: 30pt"/>
-			<input type="button" value="다른 차량 추천받기" onclick="window.location.reload()" style="HEIGHT: 30pt"/>
+			<button  onclick="location.href='AccountMenu.jsp'" style="HEIGHT: 30pt"><b>뒤로가기</b></button>
+			<button onclick="location.href='RecommendVehicle.jsp'" style="HEIGHT: 30pt"><b>다른 차량 추천받기</b></button>
 		</div>
+		</div>
+	<form action="BuyVehicle.jsp" method="POST" name="vehicleinfo">
+		<input type="hidden" name="vehicleNumber" value="<%=vehiclenumber%>"/>
+		<div align="center">
 
 		<br/>
 			<img id ="mgLeft" align="left" src="images/sample<%=samplenumber%>.png" alt="My Image" width="500" height="300" />	
@@ -92,9 +121,9 @@
 				</table>
 			</div>	
 
-			<br/><br/>
+			<br/>
 			<div align="center">
-			<input type="submit" value="바로 구매하기" style="HEIGHT: 30pt"/>
+			<button onclick = "submit();" style="HEIGHT: 30pt"><b>바로 구매하기</b></button>
 			</div>
 		</form>
 	

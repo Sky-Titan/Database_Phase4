@@ -12,6 +12,45 @@
 <head>
 <meta charset="EUC-KR">
 <title>차량매물 보기</title>
+<style >
+	
+	#mgLeft{
+	margin-left: 100px;
+	}
+	#mgTable{
+	margin-left: 650px;
+	}
+	#mgRight{
+	margin-right: 50px;
+	}
+	#td-center{
+	padding:1px; 
+	text-align:center;
+	}
+	#center
+	{
+	align-self: center;
+	}
+	button{
+	 border: 2px solid blue; 
+	 background-color: #ffffff;
+	 
+	 border-top-left-radius: 5px; 
+	 border-bottom-left-radius: 5px; 
+	 border-top-right-radius: 5px;
+	 border-bottom-right-radius: 5px;
+
+	 color: blue; 
+	 padding: 5px;}
+		body{
+				
+				background: linear-gradient( to right, skyblue, white, skyblue );
+				background-size: cover;
+				height:100%;
+			
+               }
+	
+</style>
 </head>
 <body>
 	<div align="center">
@@ -26,7 +65,7 @@
 		%>
 	
 		
-		<h2>차량 매물</h2>
+		<h1>차량 매물</h1>
 		
 		
 		
@@ -358,12 +397,12 @@
 		%>
 		</select>
 		
-		<input type="button" value="뒤로가기" onclick="location.href='AccountMenu.jsp'"/>
-		<input type = "button" value="매물 조건별 검색하기" onclick="location.href='ConditionSearch.jsp'"/>
+		<button onclick="location.href='AccountMenu.jsp'"><b>뒤로 가기</b></button>
+		<button onclick="location.href='ConditionSearch.jsp'"><b>매물 조건별 검색하기</b></button>
 		<br/>
 		<br/>
 		<form action="BuyVehicle.jsp" method="POST">
-		<div style="width:100%; height:400px; overflow:auto">
+		<div style="width:100%; height:600px; overflow:auto">
 		<% 
 		boolean isAdmin= (boolean)session.getAttribute("isAdmin");
 		
@@ -395,34 +434,39 @@
 		}
 		out.println("<table border=\"1\">");
 		for(int k=0;k<header.length;k++)
-			out.println("<th>"+header[k]+"</th>");
+			out.println("<th bgcolor=\"#ffffff\">"+header[k]+"</th>");
 		for(int i=0;i<data.length;i++)
 		{
 			
-			out.println("<tr>");
+			out.println("<tr >");
 			
 			for(int j=0;j<data[i].length;j++)
 			{
-				out.println("<td>"+data[i][j]+"</td>");
+				out.println("<td bgcolor=\"#ffffff\" align=\"center\">"+data[i][j]+"</td>");
 			}
-			out.println("<td><input type=\"radio\" name=\"choiceVehicle\" value=\""+data[i][0]+"\"></td>");
+			out.println("<td bgcolor=\"#ffffff\" align=\"center\"><input type=\"radio\" name=\"choiceVehicle\" value=\""+data[i][0]+"\"></td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");
+		out.println("<br/>");
 		%>
 		</div>
-		<%
-		out.println("<br/>");
-		if(isAdmin)
-		{
-			out.println("<input type=\"button\" value=\"차량 매물 등록\" onclick=\"location.href='RegisterVehicle.jsp'\"></input>");
-			out.println("<input type=\"button\" value=\"차량 정보 수정\" onclick=\"modifyVehicle();\"></input>");
-		}
-		out.println("<input type=\"button\" name=\"buy\" value=\"구매\" onclick=\"buyVehicle();\"></input>");
 		
-		%>
+		
+	
 	
 		</form>
+		<br/>
+		<br/>
+		<%
+		if(isAdmin)
+		{
+			%><button onclick="location.href='RegisterVehicle.jsp'"><b>차량 매물 등록</b></button>
+			<button onclick="modifyVehicle();"><b>차량정보수정</b></button><%
+		}
+		%>
+		
+		<button onclick="buyVehicle();" style="width:100pt"><b>구매</b></button>
 		<br/>
 		<br/>
 		
