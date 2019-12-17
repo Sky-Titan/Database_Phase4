@@ -1935,7 +1935,7 @@ public class DBConnection {
 		
 		try {
 			conn.setAutoCommit(false); // auto-commit disabled  
-			conn.setTransactionIsolation(6);	// set transaction isolation level serializable
+			conn.setTransactionIsolation(java.sql.Connection.TRANSACTION_SERIALIZABLE);	// set transaction isolation level serializable
 			// Create a statement object
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		}

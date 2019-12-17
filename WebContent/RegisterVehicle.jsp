@@ -294,9 +294,10 @@
 		%>
 		</select>
 		<br/><br/>
-		<input type = "button" value="완료" name="complete" onclick="checkBlank();"/>
-		<input type = "button" value="취소" name="cancel" onclick="history.back(-1);"/>
+		
 	</form>
+	<button onclick="checkBlank();" style="width:80pt"><b>완료</b></button>
+		<button onclick="location.href='VehicleTable.jsp';" style="width:80pt"><b>취소</b></button>
 	</div>
 </body>
 </html>

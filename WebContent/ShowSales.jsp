@@ -53,7 +53,7 @@
 </head>
 <body>
 	<div align="center">
-	<h2>매출액 보기</h2>
+	<h1>매출액 보기</h1>
 	
 	<script type="text/javascript">
 
