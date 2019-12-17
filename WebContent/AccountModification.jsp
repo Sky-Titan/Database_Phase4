@@ -72,6 +72,7 @@
 	<div align="Center">
 	<h2>회원정보 수정</h2>
 	<h3>*은 필수적으로 입력해야합니다.</h3>
+	<h4>[모든 데이터는 영어로 작성하시길 바랍니다]</h4>
 	
 	<form action="AccountModificationDB.jsp" method="POST" name="accountmodify">
 	
